@@ -1,0 +1,32 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+      
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/security-jwt?serverTimezone=Asia/Seoul
+    username: root
+    password: 1234
+
+  jpa:
+    hibernate:
+      ddl-auto: update #create update none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true 
+
+
+jwt:
+    token-issuer: template.com
+    token-name: template-jwt
+    secret: template-salt
+    secret-refresh: template-salt-refresh
+    expire-time: 1 #sec
+    refresh-expire-time: 10
+    signatureAlgorithm: HS512
